@@ -13,7 +13,7 @@ output "my-ec2ID" {
 #store data in local system
 resource "local_file" "ipdata" {
   content  = aws_instance.example.public_ip
-  filename = "${path.module}/myip.txt"
+  filename = "${path.module}/myip.txt"           # "${path.module} means where we are writing terraform.tf file
 
   #making manual dependency --changes made in dryrun branch only
   depends_on = [ aws_instance.example ]
