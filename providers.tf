@@ -1,4 +1,16 @@
 terraform {
+
+backend "s3" {
+
+    bucket = "viresh-terraform-bucket"
+    key    = "dev/viresh/terraform.tfstate"
+    dynamodb_table = "viresh-roche-table1"
+    region = "ap-southeast-2"
+    encrypt = true
+      
+}
+
+
   required_providers {
     
     aws = {
@@ -20,9 +32,8 @@ resource "aws_instance" "example" {
   ami = "ami-0a25a306450a2cba3"
   instance_type = "t2.nano"
   key_name = "roche-key"
-  # changing tags_all to tags 
-  tags = {
+  tags_all = {
     "Name" = "viresh-vm-1"
   }
 
-}
+#}
