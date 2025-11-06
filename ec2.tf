@@ -5,6 +5,9 @@ resource "aws_instance" "example" {
   instance_type = var.vm-size    # "t2.nano"
   key_name      = aws_key_pair.example.key_name
                     #var.ec2-key-name      #"roche-key"
+  #security_groups = [ aws_security_group.allow_tls.name ]
+  vpc_security_group_ids = [ aws_security_group.allow_tls.id]
+
   # changing tags_all to tags 
   tags = {
     "Name" = var.vm-name     #"viresh-vm-1"
@@ -17,8 +20,7 @@ provisioner "remote-exec" {
    ]
 }
 
-connection {
-  
+connection {  
   type = "ssh"
   user = "ec2-user"
   host = self.public_ip
@@ -27,6 +29,7 @@ connection {
   #content of private key data
   private_key = tls_private_key.rsa-4096-example.private_key_pem
 }
+
 
 } 
 
