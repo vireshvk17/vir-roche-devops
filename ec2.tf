@@ -22,7 +22,7 @@ connection {
   type = "ssh"
   user = "ec2-user"
   host = self.public_ip
-  timeout = "5m"
+  timeout = "3m"
 
   #content of private key data
   private_key = tls_private_key.rsa-4096-example.private_key_pem

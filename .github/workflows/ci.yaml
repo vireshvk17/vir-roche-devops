@@ -1,0 +1,30 @@
+ # name of pipeline workflow
+
+name: viresh job
+
+# trigger point
+on:
+  push:
+    branches: ["main"]           #["dryrun-aws"]
+    paths-ignore:
+      - "README.md"
+      - "terraform.tfstate"
+
+# creating jobs
+jobs:
+  test-job:
+    runs-on: ubuntu-latest
+    steps: # what excatly you want to run in ubuntu machine
+    # calling first github action to 
+    - name: taking code from my repo
+      uses: actions/checkout@v5
+      with: 
+        ref: main #dryrun-aws
+
+    - name: hello world
+      run: |
+            echo "Hello World"
+            git version
+            whoami
+            ls -a
+            
