@@ -16,5 +16,6 @@ resource "local_file" "private-key-data" {
 # sending public key to AWS cloud account 
 resource "aws_key_pair" "example" {
   public_key = tls_private_key.rsa-4096-example.public_key_openssh
-  key_name = "viresh-private-key"
+             # "viresh-private-key"
+  key_name = var.ec2-key-name
 }

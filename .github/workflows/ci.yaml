@@ -5,7 +5,7 @@ name: viresh job
 # trigger point
 on:
   push:
-    branches: ["dryrun-aws"]
+    branches: ["main"]           #["dryrun-aws"]
     paths-ignore:
       - "README.md"
       - "terraform.tfstate"
@@ -19,7 +19,7 @@ jobs:
     - name: taking code from my repo
       uses: actions/checkout@v5
       with: 
-        ref: dryrun-aws
+        ref: main #dryrun-aws
 
     - name: hello world
       run: |

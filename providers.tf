@@ -27,13 +27,3 @@ provider "aws" {
 region = "ap-southeast-2"
 }
 
-#creating ec2 VM
-#resource "aws_instance1" "example" {
- # ami = "ami-0a25a306450a2cba3"
-  #instance_type = "t2.nano"
-  #key_name = "roche-key"
-  #tags_all = {
-  #  "Name" = "viresh-vm-1"
-  #}
-
-#}
