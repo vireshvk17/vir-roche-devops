@@ -16,7 +16,7 @@ resource "local_file" "ipdata" {
   # to create multiple instances
   content  = join("\n",aws_instance.example[*].public_ip)
   # content  = aws_instance.example.public_ip    # for creating single instance
-  filename = "${path.module}/myip.txt"           # "${path.module} means where we are writing terraform.tf file
+  filename = "${path.module}/ansible-inventory.txt"           # "${path.module} means where we are writing terraform.tf file
 
   #making manual dependency --changes made in dryrun branch only
   depends_on = [ aws_instance.example ]

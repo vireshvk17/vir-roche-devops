@@ -14,23 +14,24 @@ resource "aws_instance" "example" {
     # if we want to create multiple instances ${var.vm-name}-${count.index}
     "Name" = "${var.vm-name}-${count.index}"     #"viresh-vm-1"
   }
+  
 #provisioner
-provisioner "remote-exec" {
-  inline = [ 
-    "sudo dnf install git httpd -y",
-    "mkdir -p hello/terraform"
-   ]
-}
+# provisioner "remote-exec" {
+#   inline = [ 
+#     "sudo dnf install git httpd -y",
+#     "mkdir -p hello/terraform"
+#    ]
+# }
 
-connection {  
-  type = "ssh"
-  user = "ec2-user"
-  host = self.public_ip
-  timeout = "3m"
+# connection {  
+#   type = "ssh"
+#   user = "ec2-user"
+#   host = self.public_ip
+#   timeout = "3m"
 
-  #content of private key data
-  private_key = tls_private_key.rsa-4096-example.private_key_pem
-}
+#   #content of private key data
+#   private_key = tls_private_key.rsa-4096-example.private_key_pem
+# }
 
 
 } 
