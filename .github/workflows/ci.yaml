@@ -56,9 +56,9 @@ jobs:
 #destroy the instances
 
   infra-destroy-job:
-  needs: infra-provision-job
-  runs-on: ubuntu-latest
-  steps:
+    needs: infra-provision-job
+    runs-on: ubuntu-latest
+    steps:
     - name: checking out code 
       uses: actions/checkout@v5
       with:
