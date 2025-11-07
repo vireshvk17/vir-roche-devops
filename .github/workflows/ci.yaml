@@ -59,8 +59,8 @@ jobs:
   needs: infra-provision-job
   runs-on: ubuntu-latest
   steps:
-    - name:  checking out code 
-      uses:actions/checkout@v5
+    - name: checking out code 
+      uses: actions/checkout@v5
       with:
       ref: main
     - name: login to aws creds 
