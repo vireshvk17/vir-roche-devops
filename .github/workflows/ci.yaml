@@ -5,7 +5,7 @@ name: viresh job
 # trigger point
 on:
   push:
-    branches: ["main"]           #["dryrun-aws"]
+    branches: ["main1"]           #["dryrun-aws"]
     paths-ignore:
       - "README.md"
       - "terraform.tfstate"

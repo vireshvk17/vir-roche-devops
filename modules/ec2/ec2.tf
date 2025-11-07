@@ -1,5 +1,6 @@
 # creating ec2 vm 
 resource "aws_instance" "example" {
+  count = var.novm
   #ami           = "ami-0a25a306450a2cba3"
   ami = var.viresh-ami-id # variable id came from variables.tf. the value will be asked during run time. 
   instance_type = var.vm-size    # "t2.nano"
@@ -10,7 +11,8 @@ resource "aws_instance" "example" {
 
   # changing tags_all to tags 
   tags = {
-    "Name" = var.vm-name     #"viresh-vm-1"
+    # if we want to create multiple instances ${var.vm-name}-${count.index}
+    "Name" = "${var.vm-name}-${count.index}"     #"viresh-vm-1"
   }
 #provisioner
 provisioner "remote-exec" {
